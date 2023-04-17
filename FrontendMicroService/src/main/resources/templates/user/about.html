@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- bootstrap CSS -->
+    <link th:href="@{/assets/dist/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+        </style>
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+    <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <title th:text="user_home"></title>
+</head>
+
+<body class="banner">
+
+    <section>
+        <!-- nav bar -->
+        <!-- <nav class="navbar navbar-expand-lg navbar-light px-5" style="background-color: #cfebff;"> -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top flex-md-nowrap p-0 shadow">
+            <div class="container">
+                <a class="ml-5 text-light" href="#" th:href="@{/user}">Smart Contact Manager</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mr-5">
+                        <li class="nav-item active">
+                            <a class="nav-link" th:href="@{/user}">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#" th:href="@{/user/about}">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-expanded="false">
+                                user
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Name</a>
+                                <a class="dropdown-item" href="#">Email</a>
+                                <div class="dropdown-divider"></div>
+                                <form th:action="@{/user/logout}" method="post">
+                                    <button type="submit" class="dropdown-item">logout</button>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <section class="landing d-flex justify-content-center align-items-center text-light">
+        <div class="text-center">
+            <h1 class="fony-weight-bold">This is about page</h1>
+            <a type="button" class="btn btn-outline-light mt-4 px-5" th:href="@{/user/dashboard}">Start</a>
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script th:src="@{/assets/dist/js/bootstrap.bundle.min.js}"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+
+    <script th:src="@{/js/dashboard.js}"></script>
+
+</body>
+
+</html>
