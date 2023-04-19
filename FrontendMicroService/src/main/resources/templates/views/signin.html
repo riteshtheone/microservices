@@ -23,7 +23,7 @@
                         <h1 class="text-center">Sign in</h1>
                     </div>
                     <div class="card-body">
-                        <form novalidate action="#" th:action="@{/signin}" method="post">
+                        <form novalidate action="#" th:action="@{/auth/signin}" method="post">
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" name="username" class="form-control" id="email"
@@ -48,7 +48,7 @@
                             </div>
                         </form>
                         <div class="text-center mt-4">
-                            <p>Don't have an account yet? <a th:href="@{/signup}">Sign up here</a></p>
+                            <p>Don't have an account yet? <a th:href="@{/auth/signup}">Sign up here</a></p>
                         </div>
                     </div>
                 </div>

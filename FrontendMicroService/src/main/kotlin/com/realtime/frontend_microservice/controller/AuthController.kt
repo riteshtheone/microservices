@@ -2,6 +2,7 @@ package com.realtime.frontend_microservice.controller
 
 import com.realtime.frontend_microservice.dto.UserDto
 import com.realtime.frontend_microservice.service.AuthService
+
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
@@ -9,9 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
 
 @Controller
+@RequestMapping("/auth")
 class AuthController(@Autowired private val authService: AuthService) {
 
     @GetMapping("/")
@@ -35,6 +38,10 @@ class AuthController(@Autowired private val authService: AuthService) {
     @GetMapping("/user/{userId}")
     @ResponseBody
     fun getUser(@PathVariable userId: Long) = this.authService.getUser(userId)
+
+    @GetMapping("/users")
+    @ResponseBody
+    fun getAllUsers() = this.authService.getAllUsers()
 
     @GetMapping("/user/home")
     fun user_dashboard() = "/user/home"

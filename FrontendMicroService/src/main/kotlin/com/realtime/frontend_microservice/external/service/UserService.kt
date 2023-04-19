@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 
-@FeignClient(name = "AUTH-MICROSERVICE")
+//@FeignClient(name = "AUTH-MICROSERVICE")
+@FeignClient(name = "API-GATEWAY")
 interface UserService {
 
     @GetMapping("/api/user/{userId}")
     fun getUser(@PathVariable userId: Long): ResponseEntity<UserDto>
+
+    @GetMapping("/api/users")
+    fun getAllUsers(): ResponseEntity<Set<UserDto>>
 
     @PostMapping("/api/user")
     fun createUser(@RequestBody userDto: UserDto): ResponseEntity<UserDto>

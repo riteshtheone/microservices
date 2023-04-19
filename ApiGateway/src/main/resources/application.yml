@@ -1,0 +1,14 @@
+#Spring cloud gateway configuration :------------------------------------------------------------------------------
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: AUTH-MICROSERVICE
+          uri: lb://AUTH-MICROSERVICE
+          predicates:
+          - Path=/api/**
+
+        - id: FRONTEND-MICROSERVICE
+          uri: lb://FRONTEND-MICROSERVICE
+          predicates:
+            - Path=/auth/**

@@ -7,4 +7,6 @@ import org.springframework.http.ResponseEntity
 interface AuthService {
     fun createUser(userDto: UserDto): ResponseEntity<UserDto>
     fun getUser(userId: Long): ResponseEntity<UserDto>
+
+    fun getAllUsers(): ResponseEntity<Set<UserDto>>
 }

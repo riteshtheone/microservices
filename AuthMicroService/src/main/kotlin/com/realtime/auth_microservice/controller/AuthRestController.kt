@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api")
-class UserController(
+class AuthRestController(
     @Autowired private val userService: UserService
     ) {
     @GetMapping("/user/{userId}")

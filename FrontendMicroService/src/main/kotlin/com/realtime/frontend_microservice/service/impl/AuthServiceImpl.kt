@@ -17,4 +17,6 @@ class AuthServiceImpl(@Autowired private val userService: UserService) : AuthSer
     override fun createUser(userDto: UserDto): ResponseEntity<UserDto> = this.userService.createUser(userDto)
 
     override fun getUser(userId: Long): ResponseEntity<UserDto> = this.userService.getUser(userId)
+
+    override fun getAllUsers(): ResponseEntity<Set<UserDto>> = this.userService.getAllUsers()
 }
