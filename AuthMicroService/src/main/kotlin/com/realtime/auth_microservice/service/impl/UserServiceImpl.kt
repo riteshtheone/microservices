@@ -3,7 +3,7 @@ package com.realtime.auth_microservice.service.impl
 import com.realtime.auth_microservice.dao.UserRepository
 import com.realtime.auth_microservice.dto.UserDto
 import com.realtime.auth_microservice.exception.ResourceAlreadyExistException
-import com.realtime.userservice.exception.ResourceNotFoundException
+import com.realtime.auth_microservice.exception.ResourceNotFoundException
 import com.realtime.auth_microservice.service.UserService
 import com.realtime.auth_microservice.utils.mapper.impl.UserMapper
 

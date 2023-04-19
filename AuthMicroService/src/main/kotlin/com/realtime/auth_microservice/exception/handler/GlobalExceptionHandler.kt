@@ -1,7 +1,7 @@
 package com.realtime.auth_microservice.exception.handler
 
 import com.realtime.auth_microservice.exception.ResourceAlreadyExistException
-import com.realtime.userservice.exception.ResourceNotFoundException
+import com.realtime.auth_microservice.exception.ResourceNotFoundException
 import com.realtime.auth_microservice.payload.ApiResponse
 import org.springframework.http.HttpStatus
 import org.springframework.validation.FieldError
