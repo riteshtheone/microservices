@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component
 @Component
 class UserMapper: Mapper<User, UserDto> {
     override fun toEntity(domain: UserDto): User = User(
-        domain.id,
-        domain.name,
-        domain.email,
-        domain.phone,
-        domain.password
+        domain.id!!,
+        domain.name!!,
+        domain.email!!,
+        domain.phone!!,
+        domain.password!!
     )
 
     override fun toDomain(entity: User): UserDto = UserDto(

@@ -17,7 +17,14 @@ class UserServiceImpl(
     @Autowired private val userRepository: UserRepository,
     @Autowired private val mapper: UserMapper
     ) : UserService {
-    override fun createUser(user: UserDto): UserDto = if (this.userRepository.findByEmail(user.email).isPresent) throw ResourceAlreadyExistException(user.email) else this.mapper.toDomain(this.userRepository.save(this.mapper.toEntity(user)))
+    override fun createUser(userDto: UserDto): UserDto = if (this.userRepository.findByEmail(userDto.email!!).isPresent) throw ResourceAlreadyExistException(userDto.email!!) else this.mapper.toDomain(this.userRepository.save(this.mapper.toEntity(userDto)))
+    override fun updateUser(userDto: UserDto, userId: Long): UserDto = this.mapper.toDomain(this.userRepository.save(this.userRepository.findById(userId).orElseThrow { ResourceNotFoundException("User", "Id", userId) }.apply {
+        name = userDto.name!!
+        email = userDto.email!!
+        phone = userDto.phone!!
+        password = userDto.password!!
+    }))
+
     override fun getUser(userId: Long): UserDto = this.mapper.toDomain(this.userRepository.findById(userId).orElseThrow { ResourceNotFoundException("User", "Id", userId) })
     override fun getAllUsers(): Set<UserDto> = this.userRepository.findAll().stream().map { user -> this.mapper.toDomain(user) }.collect(Collectors.toSet())
     override fun deleteUser(userId: Long): Boolean = this.userRepository.delete(this.userRepository.findById(userId).orElseThrow { ResourceNotFoundException("User", "Id", userId) }).let { true }

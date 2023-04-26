@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -29,6 +30,9 @@ class ApiAuthController(
 
     @PostMapping("/user")
     fun createUser(@Valid @RequestBody userDto: UserDto): ResponseEntity<UserDto> = ResponseEntity.status(HttpStatus.CREATED).body(this.userService.createUser(userDto))
+
+    @PutMapping("/user/{userId}")
+    fun updateUser(@Valid @RequestBody userDto: UserDto, @PathVariable userId: Long): ResponseEntity<UserDto> = ResponseEntity.status(HttpStatus.CREATED).body(this.userService.updateUser(userDto, userId))
 
     @DeleteMapping("/user/{userId}")
     fun deleteUser(@PathVariable userId: Long): ResponseEntity<Boolean> = ResponseEntity.ok(this.userService.deleteUser(userId))
